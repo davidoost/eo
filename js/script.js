@@ -2,7 +2,7 @@ const column1 = ['strawberry', 'lemon', 'pear', 'seven', 'strawberry', 'lemon', 
 const column2 = ['orange', 'plum', 'cherries', 'melon', 'orange', 'plum', 'cherries', 'seven', 'orange', 'plum', 'cherries', 'grapes', 'plum', 'orange', 'bell', 'crown', 'strawberry', 'orange', 'plum', 'cherries', 'pear', 'lemon', 'cherries', 'star']
 const column3 = ['cherries', 'crown', 'lemon', 'cherries', 'strawberry', 'lemon', 'cherries', 'pear', 'lemon', 'star', 'bell', 'pear', 'lemon', 'seven', 'bell', 'pear', 'cherries', 'melon', 'plum', 'pear', 'cherries', 'grapes', 'orange', 'lemon']
 
-let score;
+let score = 0;
 let totalScore = 100;
 
 var items = Array('cherries', 'lemon', 'orange', 'pear', 'plum', 'bell', 'strawberry', 'grapes', 'melon', 'seven', 'star');
@@ -110,7 +110,7 @@ function displayResult() {
 function rollMachine() {
     generateResult();
     console.log(`result = ${result1} - ${result2} - ${result3}`);
-    if (result1 === result2 === result3) {
+    if (result1 === result2 && result1 === result3) {
         tripleScore();
         console.log(`triple score!`);
     } else if (result1 === result2) {
@@ -146,7 +146,9 @@ function scoreValidator() {
 
 
 function gamble1() {
-    if (Math.random() < 0.5) {
+    if (score === 0) {
+        document.getElementById('gamble').innerHTML = `you need to score points to gamble`;
+    } else if (Math.random() < 0.5) {
         score *= 2;
         document.getElementById('score').innerHTML = `you scored ${score} points`;
         document.getElementById('gamble').innerHTML = `you doubled your points`;
@@ -158,7 +160,9 @@ function gamble1() {
 }
 
 function gamble2() {
-    if (Math.random() > 0.5) {
+    if (score === 0) {
+        document.getElementById('gamble').innerHTML = `you need to score points to gamble`;
+    } else if (Math.random() > 0.5) {
         score *= 2;
         document.getElementById('score').innerHTML = `you scored ${score} points`;
         document.getElementById('gamble').innerHTML = `you doubled your points`;
@@ -170,7 +174,7 @@ function gamble2() {
 }
 
 function canGamble() {
-    if (score >0) {
+    if (score > 0) {
         document.getElementById('gamble').innerHTML = `you can gamble`;
     } else {
         document.getElementById('gamble').innerHTML = `no gambling`;
