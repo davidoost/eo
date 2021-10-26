@@ -13,27 +13,34 @@
 
 <body>
 
+<div class="machine">
 
+    <div class="boxes">
+        <div class="box"><p id="result1">⭐</p></div>
+        <div class="box"><p id="result2">⭐</p></div>
+        <div class="box"><p id="result3">⭐</p></div>
+    </div>
 
-<div class="boxes">
-    <div class="box"><p id="result1">⭐</p></div>
-    <div class="box"><p id="result2">⭐</p></div>
-    <div class="box"><p id="result3">⭐</p></div>
+    <div class="roll">
+        <button onclick="scoreValidator();">Roll</button>
+    </div>
+
+    <div class="boxes">
+        <button onclick="gamble1();">Kop</button>
+        <button onclick="gamble2();">Munt</button>
+    </div>
+
 </div>
+
 <div>
     <p id="score">score</p>
     <p id="totalScore">total score</p>
 </div>
-<div class="#">
-    <button onclick="scoreValidator();">Roll</button>
-</div>
+
 <div>
     <p id="gamble">gamble</p>
 </div>
-<div class="boxes">
-    <button onclick="gamble1();">Kop</button>
-    <button onclick="gamble2();">Munt</button>
-</div>
+
 <div id="changelog">
     <h2>changelog</h2>
     <ul>
