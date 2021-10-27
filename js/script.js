@@ -173,6 +173,25 @@ function gamble2() {
     }
 }
 
+function improvedGamble(gambleChoice) {
+    let gambleResult = Math.random();
+    if (score === 0) {
+        document.getElementById('gamble').innerHTML = `you need to score points to gamble`;
+    } else if (gambleChoice === 'heads' && gambleResult > 0.5) {
+        score *= 2;
+        document.getElementById('score').innerHTML = `you scored ${score} points`;
+        document.getElementById('gamble').innerHTML = `you doubled your points`;
+    } else if (gambleChoice === 'tails' && gambleResult < 0.5) {
+        score *= 2;
+        document.getElementById('score').innerHTML = `you scored ${score} points`;
+        document.getElementById('gamble').innerHTML = `you doubled your points`;
+    } else {
+        score = 0;
+        document.getElementById('score').innerHTML = `you scored ${score} points`;
+        document.getElementById('gamble').innerHTML = `you lost your points`;
+    }
+}
+
 function canGamble() {
     if (score > 0) {
         document.getElementById('gamble').innerHTML = `you can gamble`;
